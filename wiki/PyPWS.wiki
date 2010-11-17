@@ -1,0 +1,39 @@
+# Installation and usage of wps-grass-bridge with PyWPS and GRASS GIS 7
+
+= Introduction =
+
+The wps-grass-bridge is designed to make the integration of GRASS GIS in WPS server as easy as possible. Especially for PyWPS and generic approach has been implemented to attach most of the existing and future raster and vector modules to PyWPS out of the box.
+
+Based on the base class GrassModuleStarter, which hides all the GRASS GIS overhead, a class named PyWPSGrassModuleStarter is derived which is used by automatically generated PyPWS processes using the GrassXMLtoPyWPS.py script.
+
+= Installation =
+
+== Overview ==
+
+The general principle is
+
+  # Install GRASS GIS trunk version 7 and PyWPS trunk via svn
+  # Install pyxb, which is needed to generate the PyWPS processes
+  # Download the wps-grass-bridge via svn
+  # Create the XML process description for each GRASS GIS module which should be attached
+  # Based on the XML files generate the PyWPS processes with GrassXMLtoPyWPS.py
+  # Put the wps-grass-bridge and the generated processes into a PyWPS process directory
+  # Modify the GlobalGrassSettings.py script
+
+== GRASS GIS 7 installation ==
+
+
+
+== PyWPS installation ==
+
+== wps-grass-bridge installation ==
+
+== XML process description generation ==
+
+You can create valid XML process descriptions in any valid GRASS GIS location. Start grass7 and switch to the GRASS GIS shell. To generate the XML process description for r.univar just type:
+{{{
+r.univar --wps-process-description > /tmp/r.univar.xml
+}}}
+
+== PyWPS process generation ==
+
