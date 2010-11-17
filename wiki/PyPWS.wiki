@@ -23,7 +23,7 @@ The general principle is
   # Based on the XML files generate the PyWPS processes with GrassXMLtoPyWPS.py
   # Put the wps-grass-bridge and the generated processes into a PyWPS process directory
 
-=== GRASS GIS 7 =installation ==
+=== GRASS GIS 7 installation ===
 
 The wps-grass-bridge is based on the latest GRASS GIS 7 version, which is available as svn download. Download GRASS GIS 7 via svn into your development folder:
 {{{
@@ -91,8 +91,8 @@ r.univar --wps-process-description > /tmp/r.univar.xml
 
 == PyWPS process generation ==
 
-Based on the class GrassModuleStarter, which hides all the GRASS GIS overhead, a class named PyWPSGrassModuleStarter has been implemented which is used by the automatically generated PyPWS processes.
-To generate PyPWS processes the GrassXMLtoPyWPS.py script is used. Before you can use this script, make sure pyxb version 1.1.2 is in the PYTHONPATH.
+Based on the class GrassModuleStarter, which hides all the GRASS GIS overhead, a class named PyWPSGrassModuleStarter has been implemented which is used by all automatically generated PyPWS processes.
+To generate PyPWS processes the GrassXMLtoPyWPS.py script was implemented. Before you can use this script, make sure PyXB version 1.1.2 is in your PYTHONPATH.
 
 Run the generator with the generated XML process description:
 {{{
