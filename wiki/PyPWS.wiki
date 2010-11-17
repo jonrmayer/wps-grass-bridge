@@ -46,10 +46,34 @@ http://pywps.wald.intevation.org/documentation/index.html
 
 === wps-grass-bridge installation ===
 
-The wps-grass-bridge can only be downloaded via svn, build or installation is not supported/needed:
+The wps-grass-bridge can only be downloaded via svn, build or installation is not supported/needed. Switch into your development directory and type: 
+
+{{{svn checkout http://wps-grass-bridge.googlecode.com/svn/trunk/ wps-grass-bridge-read-only}}}
+
+The wps-grass-bridge including tests and test data will be downloaded.
 
 
 = How to generate and use GRASS GIS processes =
+
+All python scripts you need are located in wps-grass-bridge-read-only directory. To test the PyWPSGrassModuleStarter.py you need to modify the GlobalGrassSetting.py file. The following, mostly self explaining variables must be set correctly:
+
+{{{
+WORKDIR="/tmp"
+OUTPUTDIR="/tmp"
+LOGFILE="/tmp/logfile.txt"
+LOGFILE_MODULE_STDOUT="/tmp/logfile_module_stdout.txt"
+LOGFILE_MODULE_STDERR="/tmp/logfile_module_sterr.txt"
+GRASS_GIS_BASE="/home/soeren/src/grass7.0/grass_trunk/dist.x86_64-unknown-linux-gnu"
+GRASS_ADDON_PATH="gms/Testing/Python/GrassAddons"
+GRASS_VERSION="7.0.svn"
+}}}
+
+Make sure the log files are accessible by your web server. The workdir is used to create the temporally GRASS GIS locations, based on the first complex raster or vector input. All results are stored as files in the outputdir.
+
+The PyWPSGrassModuleStarter includes a test which is automatically started if you execute the script in the command line. To start the PyWPSGrassModuleStarter make sure PyWPS is in your PYTHONPATH and all GRASS GIS relevant variables are set in GlobalGrassSetting.py, then type:
+{{{python PyWPSGrassModuleStarter.py
+}}}
+This will start the test by executing v.voronoi. When successfully finished the path to the generated GML file is printed to stdout.
 
 == XML process description generation ==
 
