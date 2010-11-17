@@ -23,7 +23,7 @@ The general principle is
   # Based on the XML files generate the PyWPS processes with GrassXMLtoPyWPS.py
   # Put the wps-grass-bridge and the generated processes into a PyWPS process directory
 
-=== GRASS GIS 7 installation ===
+=== GRASS GIS 7 trunk installation ===
 
 The wps-grass-bridge is based on the latest GRASS GIS 7 version, which is available as svn download. Download GRASS GIS 7 via svn into your development folder:
 {{{
@@ -35,14 +35,18 @@ http://grass.osgeo.org/wiki/Compile_and_Install
 
 Only compilation is needed. GRASS GIS 7 must not be installed, it will run perfectly after compilation from the dist directory.
 
-=== PyWPS installation ===
+=== PyWPS trunk installation ===
 
 PyWPS ships a very nice documentation, which describes detailed how to install, configure and use PyWPS. The documentation is available here: 
 http://pywps.wald.intevation.org/documentation/index.html
 
-=== PyXB Installation ===
+=== PyXB 1.1.2 Installation ===
 
-To generate PyWPS processes PyXB is needed to parse the GRASS GIS XML WPS process description files. To install PyXB follow the install instructions located here:
+To generate PyWPS processes PyXB 1.1.2 is needed to parse the GRASS GIS XML WPS process description files. 
+
+Download PyXB version 1.1.2 here: http://sourceforge.net/projects/pyxb/
+
+To install PyXB follow the install instructions located here:
 http://pyxb.sourceforge.net/overview_how.html
 Make sure PyXB is located in your PYTHONPATH after installation.
 
@@ -113,4 +117,14 @@ Now a lot processes should be created as well as an __init__.py file. In the __i
  
 Put the content of wps-grass-bridge-read-only and all generated processes into a PyWPS process directory. Add all processes to your __init__.py file in your process directory and make sure a pywps.cfg is present and correctly configured. 
 
-Use a wrapper script in your cgi-bin directory to set the process path and PyWPS PYTHONPATH.
+Use a wrapper script in your cgi-bin directory to set the process path and PyWPS PYTHONPATH like:
+
+{{{
+#!/usr/bin/sh
+
+export PYTHONPATH="/home/soeren/src/pywps-trunk/trunk/":$PYTHONPATH
+export PYWPS_CFG=/home/soeren/src/pywps-trunk/trunk/pywps/etc/pywps.cfg
+export PYWPS_PROCESSES=/home/soeren/src/wps-grass-bridge
+
+python /home/soeren/src/pywps-trunk/trunk/wps.py
+}}}
