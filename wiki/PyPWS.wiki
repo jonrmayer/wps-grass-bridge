@@ -6,7 +6,10 @@ The wps-grass-bridge is designed to make the integration of GRASS GIS 7 in WPS s
 
 It is only tested on OpenSuse Linux 11.1 and 11.2 on 32Bit and 64Bit. Other operating systems are currently not supported.
 
+
 = Installation =
+
+The wps-grass-bridge depends on GRASS GIS 7 trunk, PyWPS trunk and PyXB 1.1.2.
 
 == Overview ==
 
@@ -48,7 +51,9 @@ http://pywps.wald.intevation.org/documentation/index.html
 
 The wps-grass-bridge can only be downloaded via svn, build or installation is not supported/needed. Switch into your development directory and type: 
 
-{{{svn checkout http://wps-grass-bridge.googlecode.com/svn/trunk/ wps-grass-bridge-read-only}}}
+{{{
+svn checkout http://wps-grass-bridge.googlecode.com/svn/trunk/ wps-grass-bridge-read-only
+}}}
 
 The wps-grass-bridge including tests and test data will be downloaded.
 
@@ -71,7 +76,9 @@ GRASS_VERSION="7.0.svn"
 Make sure the log files are accessible by your web server. The workdir is used to create the temporally GRASS GIS locations, based on the first complex raster or vector input. All results are stored as files in the outputdir.
 
 The PyWPSGrassModuleStarter includes a test which is automatically started if you execute the script in the command line. To start the PyWPSGrassModuleStarter make sure PyWPS is in your PYTHONPATH and all GRASS GIS relevant variables are set in GlobalGrassSetting.py, then type:
-{{{python PyWPSGrassModuleStarter.py}}}
+{{{
+python PyWPSGrassModuleStarter.py
+}}}
 
 This will start the test by executing v.voronoi. When successfully finished the path to the generated GML file is printed to stdout.
 
@@ -86,6 +93,11 @@ r.univar --wps-process-description > /tmp/r.univar.xml
 
 Based on the class GrassModuleStarter, which hides all the GRASS GIS overhead, a class named PyWPSGrassModuleStarter has been implemented which is used by the automatically generated PyPWS processes.
 To generate PyPWS processes the GrassXMLtoPyWPS.py script is used. Before you can use this script, make sure pyxb version 1.1.2 is in the PYTHONPATH.
+
+Run the generator with an XML process description in the Testing directory:
+{{{
+python GrassXMLtoPyWPS.py -x gms/Testing/Python/v.voronoi.xml -p v_voronoi.py
+}}}
 
 == Attaching the processes ==
  
