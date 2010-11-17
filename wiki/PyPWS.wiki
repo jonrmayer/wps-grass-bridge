@@ -96,7 +96,7 @@ To generate PyPWS processes the GrassXMLtoPyWPS.py script is used. Before you ca
 
 Run the generator with the generated XML process description:
 {{{
-python GrassXMLtoPyWPS.py -x/tmp/r.univar.xml -p r_univar.py
+python GrassXMLtoPyWPS.py -x /tmp/r.univar.xml -p r_univar.py
 }}}
 
 To generate many processes at once be sure you are in a valid grass 7 session and in the wps-grass-bridge-read-only directory. Then execute the following commands:
