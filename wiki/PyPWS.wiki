@@ -2,9 +2,9 @@
 
 = Introduction =
 
-The wps-grass-bridge is designed to make the integration of GRASS GIS in WPS server as easy as possible. Especially for PyWPS and generic approach has been implemented to attach most of the existing and future raster and vector modules to PyWPS out of the box.
+The wps-grass-bridge is designed to make the integration of GRASS GIS 7 in WPS server as easy as possible. Especially for PyWPS an generic approach has been implemented to attach most of the existing and future raster and vector modules to PyWPS out of the box.
 
-Based on the base class GrassModuleStarter, which hides all the GRASS GIS overhead, a class named PyWPSGrassModuleStarter is derived which is used by automatically generated PyPWS processes using the GrassXMLtoPyWPS.py script.
+It is only tested on OpenSuse Linux 11.1 and 11.2 on 32Bit and 64Bit. Other operating systems are currently not supported.
 
 = Installation =
 
@@ -13,9 +13,10 @@ Based on the base class GrassModuleStarter, which hides all the GRASS GIS overhe
 The general principle is
 
   # Install GRASS GIS trunk version 7 and PyWPS trunk via svn
-  # Install pyxb, which is needed to generate the PyWPS processes
+  # Install PyXB, which is needed to generate the PyWPS processes
+  # Install PyWPS
   # Download the wps-grass-bridge via svn
-  # Modify the GlobalGrassSettings.py script
+  # Modify the GlobalGrassSettings.py script and test the PyWPSGrassModuleStarter.py
   # Create the XML process description for each GRASS GIS module which should be attached
   # Based on the XML files generate the PyWPS processes with GrassXMLtoPyWPS.py
   # Put the wps-grass-bridge and the generated processes into a PyWPS process directory
@@ -32,13 +33,23 @@ http://grass.osgeo.org/wiki/Compile_and_Install
 
 Only compilation is needed. GRASS GIS 7 must not be installed, it will run perfectly after compilation from the dist directory.
 
+=== PyXB Installation ===
+
+To generate PyWPS processes PyXB is needed to parse the GRASS GIS XML WPS process description files. To install PyXB follow the install instructions located here:
+http://pyxb.sourceforge.net/overview_how.html
+Make sure PyXB is located in your PYTHONPATH.
+
 === PyWPS installation ===
 
-PyWPS ships a very nice documentation, which describes detailed how to install, configure and use PyWPS. The documentation is available here: http://pywps.wald.intevation.org/documentation/index.html
+PyWPS ships a very nice documentation, which describes detailed how to install, configure and use PyWPS. The documentation is available here: 
+http://pywps.wald.intevation.org/documentation/index.html
 
 === wps-grass-bridge installation ===
 
-= HowTo generate and use GRASS GIS processes =
+The wps-grass-bridge can only be downloaded via svn, build or installation is not supported/needed:
+
+
+= How to generate and use GRASS GIS processes =
 
 == XML process description generation ==
 
@@ -49,4 +60,9 @@ r.univar --wps-process-description > /tmp/r.univar.xml
 
 == PyWPS process generation ==
 
+Based on the class GrassModuleStarter, which hides all the GRASS GIS overhead, a class named PyWPSGrassModuleStarter has been implemented which is used by the automatically generated PyPWS processes.
+To generate PyPWS processes the GrassXMLtoPyWPS.py script is used. Before you can use this script, make sure pyxb version 1.1.2 is in the PYTHONPATH.
+
 == Attaching the processes ==
+ 
+Put the wps-grass-bridge and all generated processes into the PyWPS process directory. Add all processes to your __init__.py file in your process directory.
