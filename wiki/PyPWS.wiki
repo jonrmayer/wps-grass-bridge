@@ -15,18 +15,30 @@ The general principle is
   # Install GRASS GIS trunk version 7 and PyWPS trunk via svn
   # Install pyxb, which is needed to generate the PyWPS processes
   # Download the wps-grass-bridge via svn
+  # Modify the GlobalGrassSettings.py script
   # Create the XML process description for each GRASS GIS module which should be attached
   # Based on the XML files generate the PyWPS processes with GrassXMLtoPyWPS.py
   # Put the wps-grass-bridge and the generated processes into a PyWPS process directory
-  # Modify the GlobalGrassSettings.py script
 
-== GRASS GIS 7 installation ==
+=== GRASS GIS 7 =installation ==
 
+The wps-grass-bridge is based on the latest GRASS GIS 7 version, which is available as svn download. Download GRASS GIS 7 via svn into your development folder:
+{{{
+svn checkout https://svn.osgeo.org/grass/grass/trunk grass_trunk
+}}}
 
+Follow these compilation instruction: 
+http://grass.osgeo.org/wiki/Compile_and_Install
 
-== PyWPS installation ==
+Only compilation is needed. GRASS GIS 7 must not be installed, it will run perfectly after compilation from the dist directory.
 
-== wps-grass-bridge installation ==
+=== PyWPS installation ===
+
+PyWPS ships a very nice documentation, which describes detailed how to install, configure and use PyWPS. The documentation is available here: http://pywps.wald.intevation.org/documentation/index.html
+
+=== wps-grass-bridge installation ===
+
+= HowTo generate and use GRASS GIS processes =
 
 == XML process description generation ==
 
@@ -37,3 +49,4 @@ r.univar --wps-process-description > /tmp/r.univar.xml
 
 == PyWPS process generation ==
 
+== Attaching the processes ==
