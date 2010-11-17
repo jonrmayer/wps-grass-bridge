@@ -17,7 +17,6 @@ The general principle is
 
   # Install GRASS GIS trunk version 7 and PyWPS trunk via svn
   # Install PyXB, which is needed to generate the PyWPS processes
-  # Install PyWPS
   # Download the wps-grass-bridge via svn
   # Modify the GlobalGrassSettings.py script and test the PyWPSGrassModuleStarter.py
   # Create the XML process description for each GRASS GIS module which should be attached
@@ -36,20 +35,20 @@ http://grass.osgeo.org/wiki/Compile_and_Install
 
 Only compilation is needed. GRASS GIS 7 must not be installed, it will run perfectly after compilation from the dist directory.
 
-=== PyXB Installation ===
-
-To generate PyWPS processes PyXB is needed to parse the GRASS GIS XML WPS process description files. To install PyXB follow the install instructions located here:
-http://pyxb.sourceforge.net/overview_how.html
-Make sure PyXB is located in your PYTHONPATH.
-
 === PyWPS installation ===
 
 PyWPS ships a very nice documentation, which describes detailed how to install, configure and use PyWPS. The documentation is available here: 
 http://pywps.wald.intevation.org/documentation/index.html
 
+=== PyXB Installation ===
+
+To generate PyWPS processes PyXB is needed to parse the GRASS GIS XML WPS process description files. To install PyXB follow the install instructions located here:
+http://pyxb.sourceforge.net/overview_how.html
+Make sure PyXB is located in your PYTHONPATH after installation.
+
 === wps-grass-bridge installation ===
 
-The wps-grass-bridge can only be downloaded via svn, build or installation is not supported/needed. Switch into your development directory and type: 
+The wps-grass-bridge can only be downloaded via svn. Building or installation is not supported/needed. To download the wps-grass-bridge switch into your development directory and type: 
 
 {{{
 svn checkout http://wps-grass-bridge.googlecode.com/svn/trunk/ wps-grass-bridge-read-only
@@ -57,10 +56,11 @@ svn checkout http://wps-grass-bridge.googlecode.com/svn/trunk/ wps-grass-bridge-
 
 The wps-grass-bridge including tests and test data will be downloaded.
 
-
 = How to generate and use GRASS GIS processes =
 
-All python scripts you need are located in wps-grass-bridge-read-only directory. To test the PyWPSGrassModuleStarter.py you need to modify the GlobalGrassSetting.py file. The following, mostly self explaining variables must be set correctly:
+All python scripts you need are located in wps-grass-bridge-read-only directory. The PyWPSGrassModuleStarter.py implements the connection between PyWPS and GRASS GIS. It is derived from GrassModuleStarter which is located in the gms directory.
+
+To run the PyWPSGrassModuleStarter.py you need to modify the GlobalGrassSetting.py file. The following mostly self explaining variables must be set correctly:
 
 {{{
 WORKDIR="/tmp"
@@ -73,14 +73,14 @@ GRASS_ADDON_PATH="gms/Testing/Python/GrassAddons"
 GRASS_VERSION="7.0.svn"
 }}}
 
-Make sure the log files are accessible by your web server. The workdir is used to create the temporally GRASS GIS locations, based on the first complex raster or vector input. All results are stored as files in the outputdir.
+Make sure the log files are accessible by your web server. The WORKDIR is used to create the temporally GRASS GIS locations, based on the first complex raster or vector input. All results are stored as files in the OUTPUTDIR.
 
 The PyWPSGrassModuleStarter includes a test which is automatically started if you execute the script in the command line. To start the PyWPSGrassModuleStarter make sure PyWPS is in your PYTHONPATH and all GRASS GIS relevant variables are set in GlobalGrassSetting.py, then type:
 {{{
 python PyWPSGrassModuleStarter.py
 }}}
 
-This will start the test by executing v.voronoi. When successfully finished the path to the generated GML file is printed to stdout.
+This will start the test by executing v.voronoi. When successfully finished the path to a generated GML file is printed to stdout.
 
 == XML process description generation ==
 
@@ -94,11 +94,13 @@ r.univar --wps-process-description > /tmp/r.univar.xml
 Based on the class GrassModuleStarter, which hides all the GRASS GIS overhead, a class named PyWPSGrassModuleStarter has been implemented which is used by the automatically generated PyPWS processes.
 To generate PyPWS processes the GrassXMLtoPyWPS.py script is used. Before you can use this script, make sure pyxb version 1.1.2 is in the PYTHONPATH.
 
-Run the generator with an XML process description in the Testing directory:
+Run the generator with the generated XML process description:
 {{{
-python GrassXMLtoPyWPS.py -x gms/Testing/Python/v.voronoi.xml -p v_voronoi.py
+python GrassXMLtoPyWPS.py -x/tmp/r.univar.xml -p r_univar.py
 }}}
 
 == Attaching the processes ==
  
-Put the wps-grass-bridge and all generated processes into the PyWPS process directory. Add all processes to your __init__.py file in your process directory.
+Put the wps-grass-bridge and all generated processes into a PyWPS process directory. Add all processes to your __init__.py file in your process directory and make sure a pywps.cfg is present and correctly configured. 
+
+Use a wrapper script in your cgi-bin directory to set the process path and PyWPS PYTHONPATH.
