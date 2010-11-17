@@ -99,6 +99,16 @@ Run the generator with the generated XML process description:
 python GrassXMLtoPyWPS.py -x/tmp/r.univar.xml -p r_univar.py
 }}}
 
+To generate many processes at once be sure you are in a valid grass 7 session and in the wps-grass-bridge-read-only directory. The execute the following commands:
+{{{
+cd gms/Testing/Python/
+sh create_xml.sh
+cd -
+sh sh create_pywps_processes.sh 
+}}}
+
+Now a lot processes should be created.
+
 == Attaching the processes ==
  
 Put the wps-grass-bridge and all generated processes into a PyWPS process directory. Add all processes to your __init__.py file in your process directory and make sure a pywps.cfg is present and correctly configured. 
