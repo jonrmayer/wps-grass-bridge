@@ -6,6 +6,7 @@ The wps-grass-bridge is designed to make the integration of GRASS GIS 7 in WPS s
 
 It is only tested on OpenSuse Linux 11.1 and 11.2 on 32Bit and 64Bit. Other operating systems are currently not supported.
 
+Information what kind of GRASS GIS modules are supported are available here: http://code.google.com/p/wps-grass-bridge/wiki/GRASS_GIS_module_support
 
 = Installation =
 
@@ -18,7 +19,7 @@ The general principle is
   # Install GRASS GIS trunk version 7 and PyWPS trunk via svn
   # Install PyXB, which is needed to generate the PyWPS processes
   # Download the wps-grass-bridge via svn
-  # Modify the GlobalGrassSettings.py script and test the PyWPSGrassModuleStarter.py
+  # Modify the GlobalGrassSettings`.`py script and test the PyWPSGrassModuleStarter.py
   # Create the XML process description for each GRASS GIS module which should be attached
   # Based on the XML files generate the PyWPS processes with GrassXMLtoPyWPS.py
   # Put the wps-grass-bridge and the generated processes into a PyWPS process directory
