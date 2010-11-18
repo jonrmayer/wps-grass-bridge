@@ -19,7 +19,7 @@ The general principle is
   # Install GRASS GIS trunk version 7 and PyWPS trunk via svn
   # Install PyXB, which is needed to generate the PyWPS processes
   # Download the wps-grass-bridge via svn
-  # Modify the GlobalGrassSettings`.`py script and test the PyWPSGrassModuleStarter.py
+  # Modify the GlobalGrassSettings.py script and test the PyWPSGrassModuleStarter.py
   # Create the XML process description for each GRASS GIS module which should be attached
   # Based on the XML files generate the PyWPS processes with GrassXMLtoPyWPS.py
   # Put the wps-grass-bridge and the generated processes into a PyWPS process directory
