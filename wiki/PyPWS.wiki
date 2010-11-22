@@ -134,4 +134,4 @@ python /home/soeren/src/pywps-trunk/trunk/wps.py
 == WPS clients ==
 
 To use a WPS service you will need a client. There are several clients (mostly web clients) available in the internet (PyWPS, 52North, ...). There is also a very nice 
-WPS plugin for QGIS implemented from Horts Düster. An updated version of this plugin is available in the download section of this project: http://code.google.com/p/wps-grass-bridge/downloads/list called wps.tar.gz. Just unzip and untar this archive in the plugin directory of qgis (~/.qgis/python/plugins).
+WPS plugin for QGIS implemented from Horts Düster. The plugin is available here: http://pyqgis.org/repo/contributed
