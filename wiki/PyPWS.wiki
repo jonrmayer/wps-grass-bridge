@@ -11,6 +11,7 @@ Information what kind of GRASS GIS modules are supported are available here: htt
 = Installation =
 
 The wps-grass-bridge depends on GRASS GIS 7 trunk, PyWPS trunk and PyXB 1.1.2.
+Please use always the latest svn versions of PyWPS and GRASS GIS 7, booth projects are under active development.
 
 == Overview ==
 
