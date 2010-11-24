@@ -2,11 +2,11 @@
 
 = Introduction =
 
-The wps-grass-bridge is designed to make the integration of GRASS GIS 7 in WPS server as easy as possible. Especially for PyWPS an generic approach has been implemented to attach most of the existing and future raster and vector modules to PyWPS out of the box.
+The wps-grass-bridge is designed to make the integration of GRASS GIS 7 in WPS server as easy as possible. Especially for PyWPS a generic approach has been implemented to attach most of the existing and future raster and vector processing modules to PyWPS out of the box.
 
 It is only tested on OpenSuse Linux 11.1 and 11.2 on 32Bit and 64Bit. Other operating systems are currently not supported.
 
-Information what kind of GRASS GIS modules are supported are available here: http://code.google.com/p/wps-grass-bridge/wiki/GRASS_GIS_module_support
+Informations what kind of GRASS GIS modules are supported are available here: http://code.google.com/p/wps-grass-bridge/wiki/GRASS_GIS_module_support
 
 = Installation =
 
