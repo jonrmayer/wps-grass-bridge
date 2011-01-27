@@ -26,12 +26,12 @@ Please use always the latest svn versions of the wps-grass-bridge, ZOO WPS and G
 The general principle is
 
   # Install GRASS GIS trunk version 7 and ZOO WPS trunk via svn
-  # Install PyXB, which is needed to generate the ZOO WPS processes
+  # Install PyXB, which is needed to generate the ZOO WPS processes and zcfg files
   # Download the wps-grass-bridge via svn
-  # Modify the GlobalGrassSettings.py script and test the ZOOGrassModuleStarter.py
+  # Modify the GlobalGrassSettings.py script
   # Create the XML process description for each GRASS GIS module which should be attached
   # Based on the XML files generate the ZOO WPS processes and zcfg files with GrassXMLtoZCFG.py
-  # Put the wps-grass-bridge and the generated processes into a ZOO WPS process directory
+  # Put the ZOOGrassModuleStarter.py, the gms directory and the generated processes into the ZOO WPS process directory
 
 === GRASS GIS 7 trunk installation ===
 
@@ -52,7 +52,7 @@ http://zoo-project.org/trac/wiki/ZooDocumentation/ZOOKernel
 
 === PyXB 1.1.2 Installation ===
 
-To generate PyWPS processes PyXB 1.1.2 is needed to parse the GRASS GIS XML WPS process description files to generate the zcfg and python service files. 
+To generate ZOO WPS processes PyXB 1.1.2 is needed to parse the GRASS GIS XML WPS process description files to generate the zcfg and python service files. Because the wps-grass-bridge already ships many ZOO WPS processes and zcfg files PyXB is only needed if more recent or new processes should be generated.
 
 Download PyXB version 1.1.2 here: http://sourceforge.net/projects/pyxb/
 
@@ -72,9 +72,9 @@ The wps-grass-bridge including tests and test data will be downloaded.
 
 = How to generate and use GRASS GIS processes =
 
-All python scripts you need are located in wps-grass-bridge-read-only directory. The ZOOGrassModuleStarter.py implements the connection between ZO WPS and GRASS GIS. It is derived from GrassModuleStarter which is located in the gms directory.
+All python scripts you need are located in wps-grass-bridge-read-only directory. The ZOOGrassModuleStarter implements the connection between ZOO WPS and GRASS GIS. It is derived from GrassModuleStarter which is located in the gms directory.
 
-To run the ZOOGrassModuleStarter.py you need to modify the GlobalGrassSetting.py file. The following mostly self explaining variables must be set correctly:
+To run the ZOOGrassModuleStarter you need to modify the GlobalGrassSetting.py file. The following mostly self explaining variables must be set correctly:
 
 {{{
 WORKDIR="/tmp"
@@ -98,7 +98,6 @@ r.univar --wps-process-description > /tmp/r.univar.xml
 
 == ZOO WPS process generation ==
 
-Based on the class GrassModuleStarter, which hides all the GRASS GIS overhead, a class named ZOOGrassModuleStarter has been implemented which is used by all automatically generated ZOO WPS processes.
 To generate ZOO WPS processes the GrassXMLtoZCFG.py script was implemented. Before you can use this script, make sure PyXB version 1.1.2 is in your PYTHONPATH.
 
 Run the generator with the generated XML process description:
@@ -120,8 +119,7 @@ Many processes should now be created in the zoo_services directory.
 
 == Attaching the processes ==
  
-Put the ZOOGrassModuleStarter.py and the gms directory in wps-grass-bridge-read-only and all generated processes you need into a ZOO WPS process directory. Make sure the main.cfg is present and correctly configured as well as a recent zoo_loader.cgi executable. 
-
+Put the ZOOGrassModuleStarter.py and the gms directory from the wps-grass-bridge-read-only directory and all generated processes you need into the ZOO WPS process directory. Make sure the main.cfg is present and correctly configured as well as a recent zoo_loader.cgi executable. 
 
 == WPS clients ==
 
