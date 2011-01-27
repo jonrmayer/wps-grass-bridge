@@ -133,13 +133,12 @@ python /home/soeren/src/pywps-trunk/trunk/wps.py
 
 == WPS clients ==
 
-To use a WPS service you will need a client. There are several clients (mostly web clients) available in the internet (PyWPS, 52North, ...). There is also a very nice 
-WPS plugin for QGIS implemented from Horts Düster. The plugin is available here: http://pyqgis.org/repo/contributed
+To use a WPS service you will need a client. There are several clients (mostly web clients) available in the internet (PyWPS, 52North, ZOO WPS, ...). There is also a very nice WPS plugin for QGIS implemented from Horts Düster. The plugin is available here: http://pyqgis.org/repo/contributed
 
 = Result =
 
+Here a simple demonstration using QGIS as WPS client:
+http://www.youtube.com/watch?v=jMPb9MIVKJ4 
+
 Your result may look like this screenshot, if you use the latest svn versions of GRASS GIS 7, QGIS wps plugin, wps-grass-bridge and PyWPS: 
 <img src="http://wps-grass-bridge.googlecode.com/files/wpsQgis.png" width="960" height="620" border="0" alt="wps-grass-bridgem GRASS GIS 7, PyWPS and QGIS in action">
-
-Here a simple demonstration:
-http://www.youtube.com/watch?v=jMPb9MIVKJ4 
