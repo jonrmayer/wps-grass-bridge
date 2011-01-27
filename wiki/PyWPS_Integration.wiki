@@ -136,4 +136,5 @@ python /home/soeren/src/pywps-trunk/trunk/wps.py
 To use a WPS service you will need a client. There are several clients (mostly web clients) available in the internet (PyWPS, 52North, ZOO WPS, ...). There is also a very nice WPS plugin for QGIS implemented from Horts Düster. The plugin is available here: http://pyqgis.org/repo/contributed
 
 = Result =
-<object width="1024" height="793"><param name="movie" value="http://www.youtube.com/v/jMPb9MIVKJ4?fs=1&amp;hl=de_DE&amp;rel=0&amp;hd=1"></param><param name="allowFullScreen" value="true"></param><param name="allowscriptaccess" value="always"></param><embed src="http://www.youtube.com/v/jMPb9MIVKJ4?fs=1&amp;hl=de_DE&amp;rel=0&amp;hd=1" type="application/x-shockwave-flash" allowscriptaccess="always" allowfullscreen="true" width="1024" height="793"></embed></object>
+
+<wiki:video url="http://www.youtube.com/v/jMPb9MIVKJ4?fs=1&amp;hl=de_DE&amp;rel=0&amp;hd=1"/>
