@@ -137,4 +137,4 @@ To use a WPS service you will need a client. There are several clients (mostly w
 
 = Result =
 
-<wiki:video url="http://www.youtube.com/watch?v=jMPb9MIVKJ4&feature=player_embedded"/>
+<wiki:video width="1024" height="768" url="http://www.youtube.com/watch?v=jMPb9MIVKJ4&feature=player_embedded"/>
