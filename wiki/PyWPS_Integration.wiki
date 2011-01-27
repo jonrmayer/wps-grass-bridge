@@ -107,17 +107,17 @@ python GrassXMLtoPyWPS.py -x /tmp/r.univar.xml -p r_univar.py
 
 To generate many processes at once be sure you are in a valid grass 7 session and in the wps-grass-bridge-read-only directory. Then execute the following commands:
 {{{
-cd gms/Testing/Python/
+cd gms/Testing/Python/XML
 sh create_xml.sh
 cd -
 sh create_pywps_processes.sh 
 }}}
 
-Now a lot processes should be created as well as an __init__.py file. In the __init__.py file the last comma must be removed.
+Now a lot processes should be created in the pywps_services directory as well as an __init__.py file. In the __init__.py file the last comma must be removed.
 
 == Attaching the processes ==
  
-Put the content of wps-grass-bridge-read-only and all generated processes into a PyWPS process directory. Add all processes to your __init__.py file in your process directory and make sure a pywps.cfg is present and correctly configured. 
+Put the content of wps-grass-bridge-read-only and all generated processes you need into a PyWPS process directory. Add all processes to your __init__.py file in your process directory and make sure a pywps.cfg is present and correctly configured. 
 
 Use a wrapper script in your cgi-bin directory to set the process path and PyWPS PYTHONPATH like:
 
@@ -140,3 +140,6 @@ WPS plugin for QGIS implemented from Horts Düster. The plugin is available here
 
 Your result may look like this screenshot, if you use the latest svn versions of GRASS GIS 7, QGIS wps plugin, wps-grass-bridge and PyWPS: 
 <img src="http://wps-grass-bridge.googlecode.com/files/wpsQgis.png" width="960" height="620" border="0" alt="wps-grass-bridgem GRASS GIS 7, PyWPS and QGIS in action">
+
+Here a simple demonstration:
+http://www.youtube.com/watch?v=jMPb9MIVKJ4 
