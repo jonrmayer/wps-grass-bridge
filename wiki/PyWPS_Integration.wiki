@@ -137,8 +137,4 @@ To use a WPS service you will need a client. There are several clients (mostly w
 
 = Result =
 
-Here a simple demonstration using QGIS as WPS client:
-http://www.youtube.com/watch?v=jMPb9MIVKJ4 
-
-Your result may look like this screenshot, if you use the latest svn versions of GRASS GIS 7, QGIS wps plugin, wps-grass-bridge and PyWPS: 
-<img src="http://wps-grass-bridge.googlecode.com/files/wpsQgis.png" width="960" height="620" border="0" alt="wps-grass-bridgem GRASS GIS 7, PyWPS and QGIS in action">
+<iframe title="YouTube video player" class="youtube-player" type="text/html" width="480" height="390" src="http://www.youtube.com/embed/jMPb9MIVKJ4" frameborder="0" allowFullScreen></iframe>
