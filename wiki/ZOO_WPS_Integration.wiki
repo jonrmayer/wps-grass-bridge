@@ -121,6 +121,20 @@ Many processes should now be created in the zoo_services directory.
  
 Put ZOOGrassModuleStarter.py, GlobalGrassSetting.py and the gms directory from the wps-grass-bridge-read-only directory and all generated processes you need into the ZOO WPS process directory. Make sure the main.cfg is present and correctly configured as well as a recent zoo_loader.cgi executable. 
 
+In OpenSuse 11.2 the content of the /srv/www/cgi-bin directory to run two GRASS GIS processes may look like this:
+
+{{{
+-rw-r--r-- 1 wwwrun www    1583 27. Jan 10:43 GlobalGrassSettings.py
+drwxr-xr-x 4 wwwrun www    4096 29. Apr 08:58 gms/
+-rw-r--r-- 1 wwwrun www     712 27. Jan 10:36 main.cfg
+-rw-r--r-- 1 wwwrun www     341 29. Apr 08:54 v_delaunay.py
+-rw-r--r-- 1 wwwrun www    3305 29. Apr 08:54 v_delaunay.zcfg
+-rw-r--r-- 1 wwwrun www     339 29. Apr 08:54 v_voronoi.py
+-rw-r--r-- 1 wwwrun www    2979 29. Apr 08:54 v_voronoi.zcfg
+-rw-r--r-- 1 wwwrun www   12706 29. Apr 08:54 ZOOGrassModuleStarter.py
+-rwxr-xr-x 1 wwwrun www  354470 29. Apr 08:54 zoo_loader.cgi*
+}}}
+
 == WPS clients ==
 
 To use a WPS service you will need a client. There are several clients (mostly web clients) available in the internet (ZOO WPS, PyWPS, 52North, ...). There is also a very nice WPS plugin for QGIS implemented from Horts Düster. The plugin is available here: http://pyqgis.org/repo/contributed
