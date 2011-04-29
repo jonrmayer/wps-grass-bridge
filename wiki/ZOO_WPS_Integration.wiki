@@ -119,7 +119,7 @@ Many processes should now be created in the zoo_services directory.
 
 == Attaching the processes ==
  
-Put the ZOOGrassModuleStarter.py and the gms directory from the wps-grass-bridge-read-only directory and all generated processes you need into the ZOO WPS process directory. Make sure the main.cfg is present and correctly configured as well as a recent zoo_loader.cgi executable. 
+Put ZOOGrassModuleStarter.py, GlobalGrassSetting.py and the gms directory from the wps-grass-bridge-read-only directory and all generated processes you need into the ZOO WPS process directory. Make sure the main.cfg is present and correctly configured as well as a recent zoo_loader.cgi executable. 
 
 == WPS clients ==
 
