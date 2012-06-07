@@ -62,10 +62,10 @@ Make sure PyXB is located in your PYTHONPATH after installation.
 
 === wps-grass-bridge installation ===
 
-The wps-grass-bridge can only be downloaded via svn. Building or installation is not supported/needed. To download the wps-grass-bridge switch into your development directory and type: 
+The wps-grass-bridge can only be downloaded via svn. Building or installation is not supported/needed. To download the wps-grass-bridge please use revision 82, switch into your development directory and type: 
 
 {{{
-svn checkout http://wps-grass-bridge.googlecode.com/svn/trunk/ wps-grass-bridge-read-only
+svn checkout http://wps-grass-bridge.googlecode.com/svn/trunk/ wps-grass-bridge-read-only -r82
 }}}
 
 The wps-grass-bridge including tests and test data will be downloaded.
